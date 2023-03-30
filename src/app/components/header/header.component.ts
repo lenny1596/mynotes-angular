@@ -5,12 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   title: string = 'My Notes';
-  
-  constructor(){}
-  
-  ngOnInit(): void {
-    
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  toggleAddTask(): void {
+    console.log('toggle');
   }
 }
