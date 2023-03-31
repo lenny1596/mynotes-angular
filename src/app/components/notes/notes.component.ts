@@ -1,12 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NoteType } from 'src/app/NoteType';
-import { Notes } from 'src/app/mock-notes';
+import { NoteService } from 'src/app/services/note.service';
 
 @Component({
   selector: 'app-notes',
   templateUrl: './notes.component.html',
   styleUrls: ['./notes.component.css'],
 })
-export class NotesComponent {
-  notes: NoteType[] = Notes;
+export class NotesComponent implements OnInit {
+  notes: NoteType[] = [];
+
+  constructor(private noteservice: NoteService) {}
+
+  ngOnInit(): void {
+    this.noteservice.getNotes().subscribe((Notes) => (this.notes = Notes));
+  }
 }
