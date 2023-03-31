@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { NoteType } from '../NoteType';
-import { Notes } from '../mock-notes';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NoteService {
-  constructor() {}
+  private apiUrl = 'http://localhost:5000/notes';
+
+  constructor(private http: HttpClient) {}
 
   getNotes(): Observable<NoteType[]> {
-    return of(Notes);
+    return this.http.get<NoteType[]>(this.apiUrl);
   }
 }
