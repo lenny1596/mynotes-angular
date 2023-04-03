@@ -1,1 +1,5 @@
-<app-note-item *ngFor="let note of notes" [noteItem]="note"></app-note-item>
+<app-note-item
+  *ngFor="let note of notes"
+  [noteItem]="note"
+  (onDeleteNote)="deleteNote(note)"
+></app-note-item>

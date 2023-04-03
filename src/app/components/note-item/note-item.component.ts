@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NoteType } from './../../NoteType';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
@@ -9,11 +9,16 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class NoteItemComponent implements OnInit {
   @Input() noteItem!: NoteType;
+  @Output() onDeleteNote = new EventEmitter();
   faTimes = faTimes;
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  onDelete(noteItem: NoteType): void {
+    this.onDeleteNote.emit(noteItem);
+  }
 }
 
 //  "!" is for interface types and "?" is for unnamed types

@@ -15,4 +15,12 @@ export class NotesComponent implements OnInit {
   ngOnInit(): void {
     this.noteservice.getNotes().subscribe((Notes) => (this.notes = Notes));
   }
+
+  deleteNote(note: NoteType): void {
+    this.noteservice
+      .deleteNotes(note)
+      .subscribe(
+        () => (this.notes = this.notes.filter((t) => t.id !== note.id))
+      );
+  }
 }

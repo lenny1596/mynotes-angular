@@ -35,6 +35,12 @@
       "text": "Self-Study",
       "day": "May 11th at 10:30am",
       "reminder": true
+    },
+    {
+      "id": 7,
+      "text": "Work-Out",
+      "day": "May 12th at 8:30pm",
+      "reminder": false
     }
   ]
 }
