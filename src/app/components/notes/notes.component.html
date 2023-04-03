@@ -2,4 +2,5 @@
   *ngFor="let note of notes"
   [noteItem]="note"
   (onDeleteNote)="deleteNote(note)"
+  (onToggleReminder)="toggleReminder(note)"
 ></app-note-item>

@@ -11,6 +11,7 @@ export class NoteItemComponent implements OnInit {
   @Input() noteItem!: NoteType;
   @Output() onDeleteNote = new EventEmitter();
   faTimes = faTimes;
+  @Output() onToggleReminder = new EventEmitter();
 
   constructor() {}
 
@@ -18,6 +19,10 @@ export class NoteItemComponent implements OnInit {
 
   onDelete(noteItem: NoteType): void {
     this.onDeleteNote.emit(noteItem);
+  }
+
+  onToggle(noteItem: NoteType): void {
+    this.onToggleReminder.emit(noteItem);
   }
 }
 

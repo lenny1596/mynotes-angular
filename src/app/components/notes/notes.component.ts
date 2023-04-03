@@ -23,4 +23,9 @@ export class NotesComponent implements OnInit {
         () => (this.notes = this.notes.filter((t) => t.id !== note.id))
       );
   }
+
+  toggleReminder(note: NoteType): void {
+    note.reminder = !note.reminder;
+    this.noteservice.updateReminders(note).subscribe();
+  }
 }
