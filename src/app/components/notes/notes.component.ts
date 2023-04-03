@@ -16,6 +16,10 @@ export class NotesComponent implements OnInit {
     this.noteservice.getNotes().subscribe((Notes) => (this.notes = Notes));
   }
 
+  addNote(note: NoteType): void {
+    this.noteservice.addNotes(note).subscribe((note) => this.notes.push(note));
+  }
+
   deleteNote(note: NoteType): void {
     this.noteservice
       .deleteNotes(note)

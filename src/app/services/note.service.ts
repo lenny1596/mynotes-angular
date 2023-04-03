@@ -21,13 +21,17 @@ export class NoteService {
     return this.http.get<NoteType[]>(this.apiUrl);
   }
 
-  deleteNotes(note: NoteType): Observable<NoteType> {
-    const url = `${this.apiUrl}/${note.id}`;
-    return this.http.delete<NoteType>(url);
+  addNotes(note: NoteType): Observable<NoteType> {
+    return this.http.post<NoteType>(this.apiUrl, note, httpOptions);
   }
 
   updateReminders(note: NoteType): Observable<NoteType> {
     const url = `${this.apiUrl}/${note.id}`;
     return this.http.put<NoteType>(url, note, httpOptions);
+  }
+
+  deleteNotes(note: NoteType): Observable<NoteType> {
+    const url = `${this.apiUrl}/${note.id}`;
+    return this.http.delete<NoteType>(url);
   }
 }

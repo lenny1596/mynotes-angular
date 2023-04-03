@@ -1,0 +1,35 @@
+<form class="add-form" (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="text">Note</label>
+    <input
+      type="text"
+      name="text"
+      [(ngModel)]="text"
+      id="text"
+      placeholder="Add Note"
+    />
+  </div>
+  <div class="form-control">
+    <label for="text">Day & Time</label>
+    <input
+      type="text"
+      name="day"
+      [(ngModel)]="day"
+      id="day"
+      placeholder="Add Day & Time"
+    />
+  </div>
+  <div class="form-control form-control-check">
+    <label for="reminder">Set Reminder</label>
+    <input
+      type="checkbox"
+      name="reminder"
+      [(ngModel)]="reminder"
+      id="reminder"
+    />
+  </div>
+  <input type="submit" value="Save Note" class="btn btn-block" />
+</form>
+
+<!-- [] are for input bindings and () are for output bindings like methods but both are one-way data bindings-->
+<!-- which is why [()] resembles two-way data bindings like ngmodel for forms input and display -->
